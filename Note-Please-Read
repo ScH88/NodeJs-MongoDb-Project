@@ -1,0 +1,10 @@
+All downloaded module files go here. To populate it in order for the application to work, download the following...
+
+mongoose
+express
+body-parser
+ejs
+npm
+
+If an in-IDE command-line terminal is available, type in "npm install (module name) -save". The "-save" at the end will list the 
+module package in the "dependencies" array inside the package.json file.
