@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Staff Member List</title>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="/assets/js/staff-member-list.js"></script>
+  <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+    <% include partials/header.ejs %>
+    <h1>Personal Profile: <%= staffDetails.name  %></h1>
+    <div id="staff-table">
+      <p><strong>Occupation:</strong> <%= staffDetails.job %></p>
+      <p><%= staffDetails.fullDetails %></p>
+    </div>
+  </body>
+</html>

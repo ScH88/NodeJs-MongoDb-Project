@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Staff Member List</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="/assets/js/staff-member-list.js"></script>
+    <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+    <h1>Staff Members</h1>
+    <div id="staff-table">
+      <form id="add-form">
+        <input type="hidden" name="postType" value="create-new-staff">
+        <input type="text" name="name" placeholder="Type Member Name..." required>
+        <input type="text" name="job" placeholder="Type Member Job..." required>
+        <input type="text" name="fullDetails" placeholder="Type Member Details..." required>
+        <button type="submit">Add New Staff</button>
+      </form>
+      <ul>
+        <% for (var i = 0; i < staffArray.length; i++) { %>
+          <li class="full-details" onClick="fullDetailsClick('<%= staffArray[i]._id %>')">
+            <h3><%= staffArray[i].name %></h3>
+            <%= staffArray[i].job %>
+          </li>
+          <li class="edit-click">
+            <span>Edit <%= staffArray[i].name %></span>
+            <form id="edit-form" style="display:none;">
+              <input type="hidden" name="postType" value="edit-staff">
+              <input type="hidden" name="objId" value="<%= staffArray[i]._id %>">
+              <input type="text" name="name" value="<%= staffArray[i].name %>" required>
+              <input type="text" name="job" value="<%= staffArray[i].job %>" required>
+              <input type="text" name="fullDetails" value="<%= staffArray[i].fullDetails %>" required>
+              <button type="submit">Edit</button>
+              <button type="button" id="cancel-button">Cancel</button>
+            </form>
+          </li>
+          <li class="delete-click" onClick="deleteClick('<%= staffArray[i]._id %>')">
+            <span>Delete <%= staffArray[i].name %></span>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>
